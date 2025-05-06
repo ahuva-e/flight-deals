@@ -21,8 +21,8 @@ def scrape():
         link = deal.find("a")["href"]
         text = deal.get_text()
 
-        pattern_1 = r"^(.*?):\s*(.*?)\s*[–-]\s*(.*?)\.\s*\$(\d+)\s*\(.*?\)\s*/\s*\$(\d+)\s*\(.*?\)"
-        pattern_2 = r"^(.*?):\s*(.*?)\s*[–-]\s*(.*?)\.\s*\$(\d+)\.?\s*(.*?)$"
+        pattern_1 = r"^(.*?):\s*(.*?)\s*[–-]\s*(.*?)(?: +\(and vice versa\))?\.\s*\$(\d+)\s*\(.*?\)\s*/\s*\$(\d+)\s*\(.*?\)"
+        pattern_2 = r"^(.*?):\s*(.*?)\s*[–-]\s*(.*?)(?: +\(and vice versa\))?\.\s*\$(\d+)\.?\s*(.*?)$"
         match_1 = re.search(pattern_1, text)
         match_2 = re.search(pattern_2, text)
 
@@ -41,16 +41,20 @@ def scrape():
             arrival = match_2.group(3)
             price_regular = match_2.group(4)
             flights.append([link, airline, departure, arrival, None, price_regular])
-        
+
         else:
             print("No regex match for:", text)
 
     return flights
 
 
-def init_db():
-    # create table
-    conn = sqlite3.connect("flights.db")
+def init_db(conn=None):
+    # Initialises the flight_deals table in the database.
+    close_conn = False
+    if conn is None:
+        conn = sqlite3.connect("flights.db")
+        close_conn = True
+
     cursor = conn.cursor()
 
     cursor.execute("""CREATE TABLE IF NOT EXISTS flight_deals(
@@ -64,21 +68,29 @@ def init_db():
                    )
                    """)
     conn.commit()
-    conn.close()
+
+    if close_conn:
+        conn.close()
 
 
-def insert_db(flights: list):
-    conn = sqlite3.connect("flights.db")
+def insert_db(flights: list, conn=None):
+    close_conn = False
+    if conn is None:
+        conn = sqlite3.connect("flights.db")
+        close_conn = True
+
     cursor = conn.cursor()
     for flight in flights:
         cursor.execute("""INSERT OR IGNORE INTO flight_deals
                        (link, airline, departure, arrival, basic_price, regular_price)
                        values(?, ?, ?, ?, ?, ?)""", flight)
     conn.commit()
-    conn.close()
+
+    if close_conn:
+        conn.close()
+
 
 def use_scraper():
     flights = scrape()
     init_db()
     insert_db(flights)
-
