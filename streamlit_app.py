@@ -3,9 +3,9 @@ import math
 import pandas as pd
 import plotly.express as px
 import sqlite3
-import code.web_scraper as web_scraper
-import code.api_scraper as api_scraper
-import code.chatbot as chatbot
+import web_scraper as web_scraper
+import api_scraper as api_scraper
+import chatbot as chatbot
 
 
 def streamlit_app():
