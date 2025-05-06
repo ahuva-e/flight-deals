@@ -1,6 +1,7 @@
 beautifulsoup4
 openai
 pandas
+plotly
 pytest
 requests
 streamlit
