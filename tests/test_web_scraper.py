@@ -1,8 +1,8 @@
 import unittest
 from unittest.mock import patch, MagicMock
 import sqlite3
-
 import web_scraper
+
 
 # Sample HTML for testing
 HTML_SAMPLE = """
@@ -14,6 +14,7 @@ HTML_SAMPLE = """
   </body>
 </html>
 """
+
 
 class TestScraper(unittest.TestCase):
 
@@ -57,7 +58,6 @@ class TestScraper(unittest.TestCase):
         self.assertEqual(len(rows), 2)
         self.assertEqual(rows[0][2], "Delta")
 
-
     @patch('web_scraper.scrape')
     @patch('web_scraper.init_db')
     @patch('web_scraper.insert_db')
@@ -66,4 +66,3 @@ class TestScraper(unittest.TestCase):
         web_scraper.use_scraper()
         mock_init.assert_called_once()
         mock_insert.assert_called_once()
-
