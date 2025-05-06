@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import patch, MagicMock
-import chatbot
+import code.chatbot as chatbot
 
 
 class TestChatFunction(unittest.TestCase):

@@ -1,7 +1,7 @@
 import unittest
 from unittest.mock import patch, MagicMock
 import sqlite3
-import web_scraper
+import code.web_scraper as web_scraper
 
 
 # Sample HTML for testing
