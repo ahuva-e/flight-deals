@@ -2,7 +2,7 @@ import unittest
 from unittest.mock import patch, MagicMock
 from datetime import datetime
 import requests
-import code.api_scraper as api_scraper
+import api_scraper
 
 
 class TestScrapeAPI(unittest.TestCase):

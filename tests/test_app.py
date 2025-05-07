@@ -3,7 +3,7 @@ from unittest.mock import patch
 import pandas as pd
 from types import SimpleNamespace
 import streamlit as st
-import code.streamlit_app as streamlit_app
+import streamlit_app
 
 
 class SessionStateMock(dict):
