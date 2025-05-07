@@ -87,7 +87,7 @@ def show_details(flight):
 
     if flight is not None:
 
-        st.markdown(f"##### You can view the flight [here]({flight["link"].values[0]}).")
+        st.markdown(f"##### You can view the flight [here]({flight['link'].values[0]}).")
         st.markdown(f"**{flight['airline'].values[0]}** flight from **{flight['departure'].values[0]} → {flight['arrival'].values[0]}**")
 
         # if there is only one price bound
