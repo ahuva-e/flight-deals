@@ -4,6 +4,8 @@ This project scrapes [The Flight Deal](https://www.theflightdeal.com/) for detai
 and gets weather forecasts from [Weather API](https://www.weatherapi.com/). 
 
 [![Tests](https://img.shields.io/badge/tests-passing-brightgreen)](./tests)
+[![Tests](https://github.com/ahuva-e/flight-deals/actions/workflows/python-tests.yml/badge.svg)](https://github.com/ahuva-e/flight-deals/actions/workflows/python-tests.yml)
+
 
 This Streamlit application scrapes flight deal data from the web, enriches it with weather forecasts, and includes a chatbot powered by Azure OpenAI to help users choose a holiday destination. It integrates web scraping, API usage, data visualization with Plotly, and a conversational AI assistant into a single interactive dashboard.
 
