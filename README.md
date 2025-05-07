@@ -35,6 +35,19 @@ You can find the integration in `chatbot.py`, inside the `chat()` function.
 
 ## 📋 Project Dependencies
 
+`beautifulsoup4`  - Parses HTML received by web scraper
+
+`openai` - Allows interaction with AI models
+
+`pandas` - Data analysis and manipulation
+
+`plotly` - Interactive, user-friendly graphs
+
+`pytest` - Simple testing framework for Python
+
+`requests` - Handles HTTP requests for web scraping
+
+`streamlit` - Web framework for Python apps
 
 ```bash
 beautifulsoup4
@@ -51,7 +64,7 @@ pip install -r requirements.txt
 ```
 ---
 
-## 🛠 Setup Instructions
+## ⚒️ Setup Instructions
 
 ### 1. Clone the Repository
 
@@ -79,13 +92,13 @@ OPENAI_API_ENDPOINT = "https://your-azure-resource.openai.azure.com"
 API_KEY = "your-weatherapi-key"
 ```
 
-## 🚀 Running the App Locally
+### 🚀 Running the App Locally
 
 ```bash
 streamlit run streamlit_app.py
 ```
 
-## Run tests with coverage report
+### ✅ Run tests with coverage report
 
 ```bash
 pytest --cov
@@ -99,7 +112,10 @@ The streamlit app has been deployed to the cloud and is available at
 You can also deploy the app yourself using:
 
 • Streamlit Community Cloud
-- Fork this repository
-- Go to [share.streamlit.io/deploy](https://share.streamlit.io/deploy)
-- Connect your repo, set the main file as streamlit_app.py
-- Add secrets via the UI
+1. Fork this repository
+1. Go to [share.streamlit.io/deploy](https://share.streamlit.io/deploy)
+1. Connect your repo, set the main file as streamlit_app.py
+1. Add secrets via the UI
+
+## 📄 License
+This project is licensed under the MIT License.
