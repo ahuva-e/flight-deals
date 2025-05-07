@@ -20,8 +20,7 @@ def streamlit_app():
 
     df.columns = ["id", "link", "airline", "departure", "arrival", "basic_price", "regular_price"]
 
-    st.header(":airplane: Flight Deals - final project")
-    st.markdown("#### *Ahuva Ebert*")
+    st.header(":airplane: Flight Deals Explorer")
 
     col_config = {
         "id": None,
