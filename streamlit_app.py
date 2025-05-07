@@ -88,9 +88,9 @@ def show_details(flight):
     if flight is not None:
 
         st.markdown(f"##### You can view the flight [here]({flight["link"].values[0]}).")
-        st.markdown(f"{flight['airline'].values[0]} flight from **{flight['departure'].values[0]} → {flight['arrival'].values[0]}**")
+        st.markdown(f"**{flight['airline'].values[0]}** flight from **{flight['departure'].values[0]} → {flight['arrival'].values[0]}**")
 
-        # if there is only one price bound, show that
+        # if there is only one price bound
         if math.isnan(flight['basic_price'].values[0]):
             st.markdown(f"**Flight cost:** \${flight['regular_price'].values[0]:.2f}")
         # otherwise, show both prices
@@ -141,7 +141,7 @@ def show_details(flight):
 def plot_chart(df):
     data = df[["airline", "arrival", "regular_price"]]
 
-    st.subheader("Interactive Plotly Chart")
+    st.subheader("📊 Average Flight Prices by Destination and Airline")
 
     # load and clean data
     data = df[["airline", "arrival", "regular_price"]]
@@ -166,7 +166,7 @@ def plot_chart(df):
         y='avg_price',
         color='airline',
         barmode='group',
-        labels={'avg_price': 'Avg Price ($)', 'arrival': 'Destination'}
+        labels={'avg_price': 'Price ($)', 'arrival': 'Destination', 'airline': 'Airline'},
     )
 
     fig.update_yaxes(
@@ -175,7 +175,7 @@ def plot_chart(df):
         dtick=50,
         title='Price ($)'
     )
-    fig.update_layout(height=800, title="Average Flight Prices by Destination and Airline")
+    fig.update_layout(height=800)
 
     st.plotly_chart(fig, use_container_width=True)
 
