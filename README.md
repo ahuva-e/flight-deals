@@ -3,7 +3,6 @@
 This project scrapes [The Flight Deal](https://www.theflightdeal.com/) for details of flights, 
 and gets weather forecasts from [Weather API](https://www.weatherapi.com/). 
 
-[![Tests](https://img.shields.io/badge/tests-passing-brightgreen)](./tests)
 [![Tests](https://github.com/ahuva-e/flight-deals/actions/workflows/python-tests.yml/badge.svg)](https://github.com/ahuva-e/flight-deals/actions/workflows/python-tests.yml)
 
 
